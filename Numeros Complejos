@@ -1,0 +1,103 @@
+import math
+
+def suma(t1,t2):
+    n1=t1[0]+t2[0]
+    n2=t1[1]+t2[1]
+    if n2<0:
+        return str(t1[0]+t2[0]) + str(t1[1]+t2[1]) + "i"
+    else:
+        return str(t1[0]+t2[0]) + "+" + str(t1[1]+t2[1]) + "i"
+
+def multiplicacion(t1,t2):
+    n1=(t1[0]*t2[0])-(t1[1]*t2[1])
+    n2=(t1[0]*t2[1])+(t1[1]*t2[0])
+    if n2<0:
+        return str(n1) + str(n2) + "i"
+    else:
+        return str(n1) + "+" + str(n2) + "i"
+
+def division(t1,t2):
+    n1=((t1[0]*t2[0])+(t1[1]*t2[1]))/((t2[0]**2)*(t2[1]**2))
+    n2=((t1[0]*t2[0])-(t1[1]*t2[1]))/((t2[0]**2)*(t2[1]**2))
+    if n2<0:
+        return str(n1) + str(n2) + "i"
+    else:
+        return str(n1) + "+" + str(n2) + "i"
+
+def modulo(t):
+    return str(((t[0])**2 + (t[1])**2)**(1/2))
+
+def conjugado(t):
+    if t[1]<0:
+        return str(t[0]) + "+" + str(t[1]*-1) + "i"
+    else:
+        return str(t[0]) + str(t[1]*-1) + "i"
+
+def fase(t):
+    return math.atan(math.radians(t[1]/t[0]))
+
+def cartpol(t):
+    x=float(modulo(t))
+    y=fase(t)
+    p=[]
+    p.append(x)
+    p.append(y)
+    return p
+
+def polcart(t):
+    x=t[0]*(math.cos(math.radians(t[1])))
+    y=t[0]*(math.sin(math.radians(t[1])))
+    p=[]
+    p.append(x)
+    p.append(y)
+    return p
+
+
+def main():
+    tupla1=input("ingrese su tupla con el segundo valor (separado por coma) siendo la parte imaginaria").split(",")
+    for i in range(len(tupla1)):
+        tupla1[i]=int(tupla1[i])
+    
+    tupla2=input("ingrese su tupla con el segundo valor (separado por coma) siendo la parte imaginaria").split(",")
+    for i in range(len(tupla2)):
+        tupla2[i]=int(tupla2[i])
+        
+    modo=input("ingrese lo que quiere hacer con las tuplas")
+
+    if modo=="suma":
+        print(suma(tupla1,tupla2))
+    if modo=="multiplicacion":
+        print(multiplicacion(tupla1,tupla2))
+    if modo=="division":
+        print(division(tupla1,tupla2))
+    if modo=="modulo":
+        opc=input("Cual tupla quiere usar?")
+        if opc=="1":
+            print(modulo(tupla1))
+        if opc=="2":
+            print(modulo(tupla2))
+    if modo=="conjugado":
+        opc=input("Cual tupla quiere usar?")
+        if opc=="1":
+            print(conjugado(tupla1))
+        if opc=="2":
+            print(conjugado(tupla2))
+    if modo=="fase":
+        opc=input("Cual tupla quiere usar?")
+        if opc=="1":
+            print(fase(tupla1))
+        if opc=="2":
+            print(fase(tupla2))
+    if modo=="cartesiano a polar":
+        opc=input("Cual tupla quiere usar?")
+        if opc=="1":
+            print(cartpol(tupla1))
+        if opc=="2":
+            print(cartpol(tupla2))
+    if modo=="polar a cartesiano":
+        opc=input("Cual tupla quiere usar?")
+        if opc=="1":
+            print(polcart(tupla1))
+        if opc=="2":
+            print(polcart(tupla2))
+main()

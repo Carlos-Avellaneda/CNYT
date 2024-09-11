@@ -1,0 +1,300 @@
+##Complex_vector_matrix_operations
+#Punto 1 Sum of Two Complex Vectors
+import numpy as np
+
+# Define two complex column vectors
+v1 = np.array([[1+2j],[3-1j]])
+v2 = np.array([[2-1j],[4+2j]])
+
+# Sum
+sum_v = v1 + v2
+# Display the result
+print("\nResult of addition:\n", sum_v)
+
+
+
+#Punto 2  Negation of a Complex Vector
+import numpy as np
+
+# Define complex column vector
+v1 = np.array([[2+3j], [1-2j]])
+
+# Negation
+neg_v1 = -v1
+
+# Display the result
+print("\nResult of Negation:\n", neg_v1)
+
+
+
+
+#Punto 3 Multiplication of a Complex Vector by a Scalar
+import numpy as np
+
+# Define two complex column vectors
+v1 = np.array([[1-1j], [2+2j]])
+
+# Multiplication by a scalar
+scalar = 3 + 1j
+mult_v1 = v1 * scalar
+
+print("\nResult of Multiplication by a scalar:\n", mult_v1)
+
+
+
+#Punto 4 Transpose of a Complex Vector
+import numpy as np
+
+# Define complex column vector
+v1 = np.array([[2-1j], [3+4j]])
+
+# Transpose
+transpose_v1 = v1.T
+
+print("\nResult of Transpose:\n", transpose_v1)
+
+
+
+
+#Punto 5 Conjugate of a Complex Vector
+import numpy as np
+
+# Define complex column vector
+v1 = np.array([[1+1j], [2-3j]])
+
+# Conjugate
+conjugate_v1 = np.conjugate(v1)
+
+print("\nResult of Conjugate:\n", conjugate_v1)
+
+
+
+
+#Punto 6 Adjunct (Conjugate Transpose) of a Complex Vector
+import numpy as np
+
+# Define two complex column vectors
+v1 = np.array([[1-2j], [3+1j]])
+
+# Adjunct (Conjugate transpose)
+adjunct_v1 = v1.T.conj()
+
+print("\nResult of Adjunct:\n", adjunct_v1)
+
+
+
+#Punto 7 Sum of Two Complex Matrices
+import numpy as np
+
+
+# Define two 2x2 complex matrices
+m1 = np.array([[1+1j, 2-1j], 
+               [3+2j, 4+0j]])
+m2 = np.array([[2-3j, 1+0j], 
+               [0+1j, 2+2j]])
+
+# Sum
+sum_m = m1 + m2
+
+print("\nResult of sum matrix:\n", sum_m)
+
+
+
+#Punto 8 Negation of a Complex Matrix
+import numpy as np
+
+
+# Define two 2x2 complex matrices
+m1 = np.array([[2+1j, 3+0j], 
+               [1-1j, 2+2j]])
+
+# Negation
+neg_m1 = -m1
+
+print("\nResult of negation matrix:\n", neg_m1)
+
+
+
+#Punto 9 Multiplication of a Complex Matrix by a Scalar
+import numpy as np
+
+
+# Define two 2x2 complex matrices
+m1 = np.array([[1-1j, 2+0j], 
+               [3+1j, 4-2j]])
+
+# Multiplication by a scalar
+scalar = 2 + 3j
+mult_m1 = m1 * scalar
+
+print("\nResult of Multiplication by a scalar matrix:\n", mult_m1)
+
+
+
+#Punto 10 Conjugate of a Complex Matrix
+import numpy as np
+
+
+# Define two 2x2 complex matrices
+m1 = np.array([[1+1j, 2+0j], 
+               [3-1j, 4+2j]])
+
+# Conjugate
+conjugate_m1 = np.conjugate(m1)
+
+print("\nResult of Conjugate matrix:\n", conjugate_m1)
+
+
+
+#Punto 11 Transpose of a Complex Matrix
+import numpy as np
+
+
+# Define two 2x2 complex matrices
+m1 = np.array([[1-1j, 2+2j], 
+               [3-0j, 4-1j]])
+
+# Transpose
+transpose_m1 = m1.T
+
+print("\nResult of Transpose matrix:\n", transpose_m1)
+
+
+
+#Punto 12 Adjunct (Conjugate Transpose) of a Complex Matrix
+import numpy as np
+
+
+# Define two 2x2 complex matrices
+m1 = np.array([[1+2j, 3-1j], 
+               [4-0j, 5+1j]])
+
+# Adjunct (Conjugate transpose)
+adjunct_m1 = m1.T.conj()
+
+print("\nResult of Adjunct matrix:\n", adjunct_m1)
+
+
+
+#Punto 13 Checking the Dimensions of a Matrix
+import numpy as np
+
+# Define two 2x2 complex matrices
+m1 = np.array([[1-1j, 2+0j], 
+               [3+2j, 4-1j]])
+
+
+print("\nResult of dimension matrix:\n", m1.shape)
+
+
+#Punto 14 Multiplying a Complex Square Matrix by a Complex Column Vector
+import numpy as np
+
+# Define a 2x2 complex matrix and 2x1 complex vector
+m1 = np.array([[1+1j, 2-1j], 
+               [3+0j, 4+1j]])
+v1 = np.array([[2-1j],[1+3j]])
+# Multiplying a 2x2 matrix by a 2x1 vector
+result = np.dot(m1, v1)
+
+print("\nResult of Multiplying a 2x2 matrix by a 2x1 vector:\n", result)
+
+
+
+##Taller esp.vect-hermitian-unitary-tensor
+#punto 1
+import numpy as np
+
+# Define a complex Hermitian matrix
+hermitian_matrix = np.array([[3+0j, 2+1j], [2-1j, 1+0j]])
+
+# Check if the matrix is Hermitian
+is_hermitian = np.allclose(hermitian_matrix, hermitian_matrix.conj().T)
+
+is_hermitian, hermitian_matrix
+
+
+#punto2
+import numpy as np
+
+# Define a complex Unitary matrix
+unitary_matrix = np.array([[1/np.sqrt(2), 1/np.sqrt(2)*1j], [1/np.sqrt(2)*1j, 1/np.sqrt(2)*1j]])
+
+# Check if the matrix is Unitary
+# np.eye(2) returns the identity of size 2x2
+is_unitary = np.allclose(np.dot(unitary_matrix, unitary_matrix.conj().T), np.eye(2))
+
+is_unitary, unitary_matrix
+
+
+
+#punto 3
+import numpy as np
+
+# Define two complex vectors for the tensor product
+v1 = np.array([1+1j, 2-1j])
+v2 = np.array([1-2j, 3+0j])
+
+# Calculate the tensor product
+tensor_product_v = np.kron(v1, v2)
+
+tensor_product_v
+
+
+
+#punto 4
+import numpy as np
+
+# Define two complex matrices for the tensor product
+M1 = np.array([[0,1], [1,0]])
+M2 = np.array([[0+1j, 0], [0, 0-1j]])
+
+# Calculate the tensor product
+tensor_product_m = np.kron(M1, M2)
+
+tensor_product_m
+
+
+
+##Taller esp.vect-prodinterno-vectoPropios
+
+#Punto 1
+import numpy as np
+
+# Define two complex column vectors
+vector_a = np.array([1+2j, 3-4j])
+vector_b = np.array([2-1j, -1+3j])
+
+# Compute the complex internal product
+complex_internal_product_vector = np.vdot(vector_a, vector_b)
+
+print(complex_internal_product_vector)
+
+
+
+#Punto 2
+import numpy as np
+
+# Define two square complex matrices
+matrix_A = np.array([[1+1j, 2-2j], [3+3j, 4-1j]])
+matrix_B = np.array([[1-2j, 3+1j], [4-4j, 2+2j]])
+
+# Compute the complex internal product for matrices
+print(np.dot(np.conjugate(matrix_A).T, matrix_B))
+complex_internal_product_matrix = np.trace(np.dot(np.conjugate(matrix_A).T, matrix_B))
+
+print(complex_internal_product_matrix)
+
+
+
+#punto 3
+import numpy as np
+
+# Define a square matrix
+A = np.array([[4, 1], [2, 3]])
+
+# Compute eigenvalues and eigenvectors
+eigenvalues, eigenvectors = np.linalg.eig(A)
+
+print("Eigenvalues:", eigenvalues)
+print("Eigenvectors:\n", eigenvectors)
